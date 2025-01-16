@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #90d1fd, #d1d2d3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .login-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #68cfff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(97, 226, 243, 0.5);
+        }
+        .form-group select {
+            background: #fff;
+        }
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #68cfff, rgba(97, 226, 243, 0.5));
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, rgba(97, 226, 243, 0.5), #68cfff);
+        }
+        .role-info {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="redirectToPage(); return false;">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Masukkan username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Pilih Peran</label>
+                <select id="role" name="role" required>
+                    <option value="">-- Pilih Peran --</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <script>
+            function redirectToPage() {
+                const role = document.getElementById('role').value;
+                if (role === "user") {
+                    window.location.href = "HalamanUser.html";
+                } else if (role === "admin") {
+                    window.location.href = "HalamanAdmin.html"; // Perbaikan nama file
+                } else {
+                    alert("Pilih peran sebelum melanjutkan!");
+                }
+            }
+        </script>
+        <div class="role-info">
+            <p>Pilih peran Anda untuk mengakses fitur yang sesuai.</p>
+        </div>
+    </div>
+</body>
+</html>
+
